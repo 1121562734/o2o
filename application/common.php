@@ -29,7 +29,6 @@
 	 */
 function doCurl($url,$type=0,$data=[]){
 	$ch=Curl_init();//初始化
-
 	//设置选项
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
