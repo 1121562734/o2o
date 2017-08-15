@@ -1,6 +1,6 @@
 <?php
 	/**
-	 *
+	 * 邮件配置文件
 	 */
 	return [
 		'username'=> 'wangjianbao1210@163.com',
