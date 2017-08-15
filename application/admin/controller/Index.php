@@ -12,7 +12,11 @@ class Index extends Controller
 
 	public function welcome()
 	{
-		return "欢迎来到o2o主后台首页";
+    \phpmailer\Email::send('1121562734@qq.com', 'test', "wqweq<br /> 12313");
+
+		//\phpmailer\Email::send(1, 1, 1);
+		return "发送成功";
+		//return "欢迎来到o2o主后台首页";
 	}
 
 	public function test()
