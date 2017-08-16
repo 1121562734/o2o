@@ -29,7 +29,11 @@ body {
 					'token'     : '<?php echo md5('unique_salt' . $timestamp);?>'
 				},
 				'swf'      : 'uploadify.swf',
-				'uploader' : 'uploadify.php'
+				'uploader' : 'uploadify.php',
+                'buttonText'      : '图片上传',
+                'onUploadSuccess' : function(file, data, response) {
+                    alert('The file ' + file.name + ' was successfully uploaded with a response of ' + response + ':' + data);
+                }
 			});
 		});
 	</script>

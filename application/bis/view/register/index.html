@@ -44,7 +44,7 @@
         <div class="row cl">
               <label class="form-label col-xs-4 col-sm-2">营业执照：</label>
               <div class="formControls col-xs-8 col-sm-9">
-                <input id="file_upload_other"  type="file" multiple="true" >
+                <input id="file_upload_other"  type="file" multiple="truef" >
                 <img style="display: none" id="upload_org_code_img_other" src="" width="150" height="150">
                 <input id="file_upload_image_other" name="licence_logo" type="hidden" multiple="true" value="">
               </div>
@@ -52,8 +52,8 @@
         
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">商户介绍：</label>
-			<div class="formControls col-xs-8 col-sm-9"> 
-				<script id="editor1"  type="text/plain" name="description" style="width:80%;height:300px;"></script> 
+			<div class="formControls col-xs-8 col-sm-9">
+				<div id="editor1"  type="text/plain" name="description" style="width:80%;height:300px;"></div>
 			</div>
 		</div>
 		<div class="row cl">
@@ -143,7 +143,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">门店简介：</label>
 			<div class="formControls col-xs-8 col-sm-9"> 
-				<script id="editor"  type="text/plain" name="content" style="width:80%;height:300px;"></script> 
+				<div id="editor"  type="text/plain" name="content" style="width:80%;height:300px;"></div>
 			</div>
 		</div>
 
@@ -176,10 +176,10 @@
 <script type="text/javascript" src="__STATIC__/admin/hui/lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
 <script>
  var SCOPE = {
-   'city_url' : '{:url('api/city/getCitysByParentId')}',
-    'category_url' : '{:url('api/category/getCategoryByParentId')}',
+   'city_url' : '{:url("api/city/getCitysByParentId")}',
+    'category_url' : '{:url("api/category/getCategoryByParentId")}',
 	'uploadify_swf' : '__STATIC__/admin/uploadify/uploadify.swf',
-	'image_upload' : '{:url('api/image/upload')}',
+	'image_upload' : '{:url("api/image/upload")}',
  };
 </script>
 <!--分配编辑器-->
