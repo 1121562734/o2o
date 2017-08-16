@@ -27,7 +27,7 @@
 			//'__file__'   => ['common.php'],
 			'__dir__'    => ['model'],
 			//'controller' => ['Index', 'Test'],
-			'model'      => ['Category', 'Admin'],
+			'model'      => ['Category', 'Admin'], //创建模型
 			//'view'       => ['index/index'],
 		],
 
@@ -42,6 +42,13 @@
 		'api' => [
 			'__dir__'    => ['controller','view'],
 			'controller' => ['Index','Image'],
+			//'view'       => ['index/index'],
+		],
+
+		//bis
+		'bis' => [
+			'__dir__'    => ['controller','view'],
+			'controller' => ['Register','Login'],
 			//'view'       => ['index/index'],
 		],
 	];

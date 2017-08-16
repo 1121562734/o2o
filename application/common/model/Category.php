@@ -24,6 +24,7 @@ class Category extends Model
 			->order($order)
 			->select();
 	}
+	//查询分类
 	public function getFirstCategory($parent_id = 0){
 	$data = [
 		'parent_id' => $parent_id,
@@ -39,5 +40,18 @@ class Category extends Model
 		//->select();
 
 	return $result;
+	}
+
+	public function getNormalCategoryByParentId($parentId=0){
+		$data = [
+			'status'=> 1,
+			'parent_id'=> $parentId,
+		];
+		$order = [
+			'id'=>'desc'
+		];
+		return $this->where($data)
+			->order($order)
+			->select();
 	}
 }
