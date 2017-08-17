@@ -1,5 +1,7 @@
 /**
  * Created by Administrator on 2017/8/16. 图片的
+ *     //https://www.kancloud.cn/shuiyueju/uploadifycn/79419 学习网址
+
  */
 
 $(function() {
@@ -21,6 +23,7 @@ $(function() {
             }
         }
     });
+
 //营业执照
     $("#file_upload_other").uploadify({
 

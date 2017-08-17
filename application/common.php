@@ -43,5 +43,17 @@ function doCurl($url,$type=0,$data=[]){
 	//释放curl句柄
 	curl_close($ch);
 	return $output;
-
+}
+//商户入驻申请状态
+function bisRegister($status){
+	if($status == 1){
+		$str= '入驻申请成功';
+	}elseif($status == 0){
+		$str= '待审核,平台方会发送邮件通知,请关注';
+	}elseif($status == 2){
+		$str='你提交的条件不符合条件请重新提交';
+	}else{
+		$str="该申请已被删除";
+	}
+	return $str;
 }

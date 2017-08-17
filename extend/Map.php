@@ -3,6 +3,7 @@
 	/**
 	 * Class Map 百度地图相关业务封装
 	 * 根据地址获取经纬度
+	 * 返回数组
 	 */
 class Map {
 	public static function  getLngLat($address){
@@ -21,7 +22,12 @@ class Map {
 		//1. file_get_contents($url);
 		//2. curl
 		$result=doCurl($url);
-		return $result;
+		if($result){
+			return json_decode($result,true);
+		}else{
+			return [];
+		}
+
 }
 
   public static function staticimage($center){
