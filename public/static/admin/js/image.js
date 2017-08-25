@@ -18,7 +18,7 @@ $(function() {
             if(response){
                 var obj = JSON.parse(data);
                 $("#upload_org_code_img").attr("src",obj.data);
-                $("#file_upload_image").attr("src",obj.data);
+                $("#file_upload_image").val(obj.data);
                 $("#upload_org_code_img").show();
             }
         }
@@ -36,7 +36,7 @@ $(function() {
             if(response){
                 var obj = JSON.parse(data);
                 $("#upload_org_code_img_other").attr("src",obj.data);
-                $("#file_upload_image_other").attr("src",obj.data);
+                $("#file_upload_image_other").val(obj.data);
                 $("#upload_org_code_img_other").show();
             }
         }

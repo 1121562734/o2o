@@ -5,7 +5,18 @@ use think\Model;
 
 class BisLocation extends BaseModel
 {
-	protected $autoWriteTimestamp = true;//时间戳自动添加
-	
+	public function getNormalLocationByBisId($bis_id){
+		$order =[
+			'id'=>'desc',
+		];
+		$data= [
+			'bis_id'=>$bis_id,
+			'status'=>1,
+		];
+		$result=$this->where($data)
+			->order($order)
+			->select();
+		return $result;
+	}
 
 }
