@@ -1,6 +1,7 @@
 <?php
 namespace app\bis\controller;
 
+use app\common\model\Bis;
 use think\Controller;
 use think\Model;
 
@@ -39,6 +40,9 @@ class Register extends Controller
 		if(!$validate->scene('add')->check($data)){
 			$this->error($validate->getError());
 		}
+		if(model('BisAccount')->get(['username'=>$data['username']] !== false)){
+			$this->error('用户名已经存在,请重新分配');
+		}
 		//标注 获取经纬度
 		$lnglat=\Map::getLngLat($data['address']);
 
@@ -62,14 +66,16 @@ class Register extends Controller
 			'email'=>$data['email'],
 		];
 		$bisId=model('Bis')->add($bisData);
-
+		$data['cat']='';
 		if(!empty($data['se_category_id'])){
 			$data['cat']=implode('|',$data['se_category_id']);
 		}
 		//总店信息入库
 		$locationData= [
 			'bis_id'=>$bisId,
-			'tel'=>$data['name'],
+			'name'=>$data['name'],
+			'tel'=>$data['tel'],
+			'logo'=>$data['logo'],
 		    'contact'=>$data['contact'],
 			'category_id'=>$data['category_id'],
 			'category_path'=>empty($data['cat'])?'':$data['category_id'].','.$data['cat'],
@@ -116,5 +122,13 @@ class Register extends Controller
 				'detail'=>$detail,
 				]
 		);
+	}
+
+	public function test(){
+
+		$res=Bis::joinSelect();
+		dump(collection($res)->toArray());
+		//return $res;
+		//var_dump($res->toArray());
 	}
 }

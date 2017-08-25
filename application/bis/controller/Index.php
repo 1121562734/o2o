@@ -1,10 +1,13 @@
 <?php
 namespace app\bis\controller;
 
-class Index
+use think\Controller;
+
+class Index extends Base
 {
+
     public function index()
     {
-        return '1';
+      return  $this->fetch();
     }
 }

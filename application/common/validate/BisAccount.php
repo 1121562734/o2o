@@ -6,7 +6,7 @@ use think\Validate;
 class bisAccount extends Validate
 {
   protected $rule =[
-	  'username'=> 'require|unique:bis_account',//用户
+	  'username'=> 'require',//用户
 	  'password'=>'require|password',//密码
 
   ];
@@ -25,5 +25,6 @@ class bisAccount extends Validate
   /**场景设置**/
   protected $scene=[
   	'add'=>['username','password'],//添加 没有是不会走某个值的
+    'login'=>['username','password'],
   ];
 }

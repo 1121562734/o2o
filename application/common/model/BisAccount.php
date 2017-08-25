@@ -5,7 +5,10 @@ use think\Model;
 
 class BisAccount extends BaseModel
 {
-	protected $autoWriteTimestamp = true;//时间戳自动添加
+	public function updataById($data,$id){
 
+		//过滤post数组
+		return $this->save($data,['id'=>$id]);
+	}
 
 }

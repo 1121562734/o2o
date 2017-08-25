@@ -44,6 +44,7 @@ function doCurl($url,$type=0,$data=[]){
 	curl_close($ch);
 	return $output;
 }
+
 //商户入驻申请状态
 function bisRegister($status){
 	if($status == 1){
@@ -57,3 +58,59 @@ function bisRegister($status){
 	}
 	return $str;
 }
+
+
+	/**
+	 * 通用的分页样式
+	 * @param $obj
+	 */
+	function pagination($obj) {
+		if(!$obj) {
+			return '';
+		}
+		// 优化的方案
+		$params = request()->param();
+		return '<div class="cl pd-5 bg-1 bk-gray mt-20 tp5-o2o">'.$obj->appends($params)->render().'</div>';
+	}
+
+
+	//获取二级城市的名称
+	function getSeCityName($path) {
+		if(empty($path)) {
+			return '';
+		}
+		if(preg_match('/,/', $path)) {
+			$cityPath = explode(',', $path);
+			$cityId = $cityPath[1];
+		}else {
+			$cityId = $path;
+		}
+
+		$city = model('City')->get($cityId);
+		return $city->name;
+	}
+
+	/**
+	 * 发送邮件店面审核信息
+	 * @param $status 状态
+	 * @param $bisId 店面id
+	 * $email 电子邮件
+	 */
+	function sendemail($status=0,$email,$bisId){
+		if($status == 1){
+			$url=request()->domain().url('bis/register/waiting',['id'=>$bisId]);//全局链接
+			$title="o2o入住审核通知";
+			$content="您提交的入驻申请审核通过,您可以通过点击链接<a href='".$url."' target='_blank'>查看链接</a>查看审核状态";
+		}elseif($status==2){
+			$url=request()->domain().url('bis/register/waiting',['id'=>$bisId]);//全局链接
+			$title="o2o入住审核通知";
+			$content="您提交的入驻申请审核失败,您可以通过点击链接<a href='".$url."' target='_blank'>查看链接</a>查看审核状态";
+		}elseif($status==0){
+			$url=request()->domain().url('bis/register/waiting',['id'=>$bisId]);//全局链接
+			$title="o2o入住申请通知";
+			$content="您提交的入驻申请需等待平台方审核,您可以通过点击链接<a href='".$url."' target='_blank'>查看链接</a>查看审核状态";
+		}else{
+			return '参数错误';
+		}
+		\phpmailer\Email::send($email, $title, $content);
+	}

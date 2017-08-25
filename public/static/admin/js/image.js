@@ -26,7 +26,6 @@ $(function() {
 
 //营业执照
     $("#file_upload_other").uploadify({
-
         'swf'             : SCOPE.uploadify_swf,
         'uploader'        : SCOPE.image_upload,
         'buttonText'      : '图片上传',
@@ -36,9 +35,9 @@ $(function() {
         'onUploadSuccess' : function(file, data, response) {
             if(response){
                 var obj = JSON.parse(data);
-                $("#file_upload_image_other").attr("src",obj.data);
                 $("#upload_org_code_img_other").attr("src",obj.data);
-                $("#file_upload_image_other").show();
+                $("#file_upload_image_other").attr("src",obj.data);
+                $("#upload_org_code_img_other").show();
             }
         }
     });

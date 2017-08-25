@@ -27,4 +27,6 @@ class Index extends Controller
 	{
 		return \Map::staticimage('北京昌平沙河地铁');
 	}
+	
+
 }

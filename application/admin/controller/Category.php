@@ -17,14 +17,14 @@ class Category extends Controller
 			'categorys'=>$categorys,
 			]);
     }
-	
+	//添加显示页面
 	public function add(){
 		$categorys =$this->obj->getNormalFirstCategory();
 		return $this->fetch('',[
 			'categorys'=>$categorys,
 		]);
 	}
-
+	//更新页面
 	public function save(){
 		//return $this->fetch();
 
