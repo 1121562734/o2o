@@ -52,7 +52,7 @@ class Register extends Controller
 
 		//商户信息入库
 		$bisData= [
-			'name'=>$data['name'],
+			'name'=>htmlentities($data['name']),
 		    'city_id'=>$data['city_id'],
 		    'city_path'=>empty($data['se_city_id']) ? $data['city_id']:$data['city_id'].','.$data['se_city_id'],
 			'logo'=>$data['logo'],
