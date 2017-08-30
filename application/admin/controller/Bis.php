@@ -8,6 +8,10 @@ class Bis extends Controller
 	private $obj;
 
 	public function _initialize(){
+		$base = new app\admin\controller\Base();
+		$base->status();
+
+
 		$this->obj=model('Bis');
 
 	}
