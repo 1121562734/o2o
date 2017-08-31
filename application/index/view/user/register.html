@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>注册页面</title>
-</head>
+<!--包含头部文件-->
+{include file="public/header" /}
 <body>
-<form action="user.php" method="post">
-    <p>账号:<input type="text" name="user"></p>
-    <p>邮箱:<input type="email" name="user"></p>
+<form action="{:url('index/user/register')}" method="post">
+    <p>账号:<input type="text" name="username"></p>
+    <p>邮箱:<input type="email" name="email"></p>
     <p>密码:<input type="password" name="pwd"></p>
     <p>确认密码:<input type="password" name="pwd2"></p>
-    <p>验证码:<input type="text" name="code"><div>{:captcha_img()}</div></p>
+    <p>验证码:<input type="text" name="code"><div><img src="{:captcha_img()}"id="yzm" alt="点击更新验证码" onclick="this.src='{:captcha_img()}?'+Math.random()" /></div></p>
     <input type="submit" value="注册">
 </form>
 </body>
